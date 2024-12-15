@@ -33,9 +33,9 @@
   }
 
   @media (max-width: 1024px) {
-    #section {
-        height: 75%; /* Adjusted height for tablets */
-    }
+        #section {
+            height: 75%; /* Adjusted height for tablets */
+        }
     }
 
     @media (max-width: 800px) {
@@ -56,18 +56,44 @@
         }
     }
 
-    
-
-  
-
+    @media (max-width: 450px) {
+        #section {
+            height: 30%;
+        }
+    }
 
   #main-screen {
     aspect-ratio: 4/3;
     border: 2px solid black;
+    position: relative;
   }
 
-  #screen-image {
-    background-image: url("../public/Trollface.png");
+  #canvas {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  #screen-image1 {
+    background-image: url("../public/Troll1.png");
+    background-size: cover;       /* Ensures the image covers the whole screen */
+    background-position: center;  /* Centers the image in the viewport */
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+  }
+
+  #screen-image2 {
+    background-image: url("../public/Troll2.jpeg");
+    background-size: cover;       /* Ensures the image covers the whole screen */
+    background-position: center;  /* Centers the image in the viewport */
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+  }
+
+  #screen-image3 {
+    background-image: url("../public/Troll3.jpeg");
     background-size: cover;       /* Ensures the image covers the whole screen */
     background-position: center;  /* Centers the image in the viewport */
     background-repeat: no-repeat;
