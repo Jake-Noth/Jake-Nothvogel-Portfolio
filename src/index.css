@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #body, html {
+    height: 100%;
+    width: 100%;
+  }
+
+  #root{
+    height: 100%;
+    width: 100%;
+  }
+
+  #app-container{
+    height: 100%;
+    width: 100%;
+  }
+
+  #header {
+    height: 4%;
+    border: 2px solid black;
+  }
+
+  #section {
+    height: 85%;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  @media (max-width: 1024px) {
+    #section {
+        height: 75%; /* Adjusted height for tablets */
+    }
+    }
+
+    @media (max-width: 800px) {
+        #section {
+            height: 55%; /* Adjusted height for tablets */
+        }
+    }
+
+    @media (max-width: 650px) {
+        #section {
+            height: 45%; /* Adjusted height for tablets */
+        }
+    }
+
+  @media (max-width: 500px) {
+        #section {
+            height: 35%;
+        }
+    }
+
+    
+
+  
+
+
+  #main-screen {
+    aspect-ratio: 4/3;
+    border: 2px solid black;
+  }
+
+  #screen-image {
+    background-image: url("../public/Trollface.png");
+    background-size: cover;       /* Ensures the image covers the whole screen */
+    background-position: center;  /* Centers the image in the viewport */
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+  }
+
+  .column {
+    height: 100%;
+    width: auto;
+    border: 2px solid black;
+  }
+
+  #footer {
+    height: auto;
+    width: 100%;
+    border: 2px solid black;
+  }
