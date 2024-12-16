@@ -24,7 +24,8 @@ export default function ScreenRender(props: TVScreenRenderProps) {
                             const tempScreens = [...screens, canvas]
                             props.setScreens(tempScreens)
                             setCounter((prevCounter) => prevCounter + 1);
-                        }, 5000);
+                            console.log('just updated screens')
+                        }, 2000);
                     }
                 }
             });
