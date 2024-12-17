@@ -20,13 +20,11 @@
   }
 
   #header {
-    height: 4%;
-    border: 2px solid black;
+    height: 10%;
   }
 
   #section {
-    height: 85%;
-    border: 2px solid black;
+    height: 75%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -119,5 +117,4 @@
   #footer {
     height: auto;
     width: 100%;
-    border: 2px solid black;
   }

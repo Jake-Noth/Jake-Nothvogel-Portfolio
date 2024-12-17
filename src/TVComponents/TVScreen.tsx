@@ -6,51 +6,41 @@ import ScreenRender from "./ScreenRender";
 
 export default function TVScreen() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [screens, setScreens] = useState<HTMLCanvasElement[]>([]);
     const staticScreenIntervalIDRef = useRef<number | undefined>(undefined);
-    const [canvasReady, setCanvasReady] = useState(false);
+    const offscreenCanvases = useRef<OffscreenCanvas[]>([])
+    const [loading, setLoading] = useState(true)
 
-    const screenComponents = [<Screen2 />, <Screen1 />, <Screen3 />];
+    const screenComponents = [<Screen1 />, <Screen2 />, <Screen3 />];
 
-    const loopStaticScreens = () => {
-        const img = new Image();
-        img.src = "../../public/Troll1.png";
+    const loadingStaticTimer = (duration:number) =>{
+        setTimeout(()=>{
+            setLoading(false)
+        }, duration)
+    }
+
+    const loopStaticScreen = () => {
         const canvas = canvasRef.current;
         const ctx = canvas?.getContext("2d");
-        img.onload = () => {
-            if (canvas && ctx) {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                const noiseTexture = generateNoise(500, 0.4);
-                const offscreenCanvas = new OffscreenCanvas(
-                    noiseTexture.width,
-                    noiseTexture.height
-                );
-                const offscreenCtx = offscreenCanvas.getContext("2d");
-                if (offscreenCtx) {
-                    offscreenCtx.putImageData(noiseTexture, 0, 0);
-                    const pattern = ctx.createPattern(offscreenCanvas, "repeat");
-                    if (pattern) {
-                        ctx.fillStyle = pattern;
-                        ctx.fillRect(0, 0, canvas.width, canvas.height);
-                        if (!canvasReady) {
-                            setCanvasReady(true);
-                        }
-                    }
-                }
-            }
-        };
-    };
-
-    useEffect(() => {
-        if (screens.length !== screenComponents.length) {
-            staticScreenIntervalIDRef.current = window.setInterval(loopStaticScreens, 10);
-        } else {
-            if (staticScreenIntervalIDRef.current !== undefined) {
-                clearInterval(staticScreenIntervalIDRef.current);
-                staticScreenIntervalIDRef.current = undefined;
+    
+        if (canvas && ctx) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+            const pattern = ctx.createPattern(
+                offscreenCanvases.current[Math.floor(Math.random() * offscreenCanvases.current.length)],
+                "repeat"
+            );
+    
+            if (pattern) {
+                ctx.fillStyle = pattern;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                const noiseCanvas = offscreenCanvases.current[
+                    Math.floor(Math.random() * offscreenCanvases.current.length)
+                ];
+                ctx.drawImage(noiseCanvas, 0, 0, canvas.width, canvas.height);
             }
         }
-    }, [screens.length]);
+    };
 
     function generateNoise(size: number, intensity: number) {
         const noise = new ImageData(size, size);
@@ -62,12 +52,32 @@ export default function TVScreen() {
         return noise;
     }
 
+    const loadNoiseCanvases = () =>{
+
+        for(let i =0; i<30;i++){
+            const noiseTexture = generateNoise(500,1)
+            const offscreenCanvas = new OffscreenCanvas(
+                noiseTexture.width,
+                noiseTexture.height
+            );
+            const offscreenCtx = offscreenCanvas.getContext("2d");
+            if(offscreenCtx){
+                offscreenCtx.putImageData(noiseTexture, 0, 0);
+                offscreenCanvases.current.push(offscreenCanvas)
+            }
+        }
+    }
+
+    useEffect(() => {
+        loadNoiseCanvases()
+        staticScreenIntervalIDRef.current = window.setInterval(loopStaticScreen,40);
+        loadingStaticTimer(2000)
+    }, []);
+
     return (
         <div id="main-screen">
-            <canvas id="canvas" ref={canvasRef} />
-            {canvasReady && (
-                <ScreenRender screens={screenComponents} setScreens={setScreens} />
-            )}
+            <canvas id="canvas" ref={canvasRef} style={loading ? {opacity:1}:{opacity:0.3}}/>
+            {!loading ? <ScreenRender screens={screenComponents} />: null}
         </div>
     );
 }
