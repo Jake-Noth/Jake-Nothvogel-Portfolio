@@ -13,7 +13,8 @@
     "glfx": "^0.0.4",
     "html2canvas": "^1.4.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-scroll-wheel-handler": "^2.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

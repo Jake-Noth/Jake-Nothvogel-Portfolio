@@ -1,21 +1,28 @@
 import { useEffect, useRef, useState } from "react";
-import Screen1 from "../screens/Screen1";
-import Screen2 from "../screens/Screen2";
-import Screen3 from "../screens/Screen3";
 import ScreenRender from "./ScreenRender";
 
-export default function TVScreen() {
+interface TVScreenProps{
+    screens : JSX.Element[]
+    screenIndex: number
+    loading: boolean
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+
+export default function TVScreen(props:TVScreenProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const staticScreenIntervalIDRef = useRef<number | undefined>(undefined);
     const offscreenCanvases = useRef<OffscreenCanvas[]>([])
-    const [loading, setLoading] = useState(true)
-
-    const screenComponents = [<Screen1 />, <Screen2 />, <Screen3 />];
+    
 
     const loadingStaticTimer = (duration:number) =>{
         setTimeout(()=>{
-            setLoading(false)
+            props.setLoading(false)
         }, duration)
+    }
+
+    if(props.loading){
+        loadingStaticTimer(500)
     }
 
     const loopStaticScreen = () => {
@@ -75,9 +82,10 @@ export default function TVScreen() {
     }, []);
 
     return (
+        
         <div id="main-screen">
-            <canvas id="canvas" ref={canvasRef} style={loading ? {opacity:1}:{opacity:0.3}}/>
-            {!loading ? <ScreenRender screens={screenComponents} />: null}
+            <canvas id="canvas" ref={canvasRef} style={props.loading ? {opacity:1}:{opacity:0.3}}/>
+            {!props.loading ? <ScreenRender screen={props.screens[props.screenIndex]}/>: null}
         </div>
     );
 }
