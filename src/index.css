@@ -73,41 +73,24 @@
   
   #canvas {
       position: absolute;
+      pointer-events: none;
       top: 0;
       left: 0;
       height: 100%;
       width: 100%;
   }
 
-  #screen-image1 {
-    background-image: url("../public/Troll1.png");
+  .social-links {
+    width: 30%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
     border-radius: 30px;
-    background-size: cover;       /* Ensures the image covers the whole screen */
-    background-position: center;  /* Centers the image in the viewport */
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
   }
 
-  #screen-image2 {
-    background-image: url("../public/Troll2.jpeg");
-    border-radius: 30px;
-    background-size: cover;       /* Ensures the image covers the whole screen */
-    background-position: center;  /* Centers the image in the viewport */
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-  }
-
-  #screen-image3 {
-    background-image: url("../public/Troll3.jpeg");
-    border-radius: 30px;
-    background-size: cover;       /* Ensures the image covers the whole screen */
-    background-position: center;  /* Centers the image in the viewport */
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-  }
+  
 
   .column {
     height: 100%;

@@ -13,16 +13,19 @@ export default function TVScreen(props:TVScreenProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const staticScreenIntervalIDRef = useRef<number | undefined>(undefined);
     const offscreenCanvases = useRef<OffscreenCanvas[]>([])
+    const [firstRender, setFirstRender] = useState(true)
+    const [renderScreen, setRenderScreen] = useState(false)
     
 
     const loadingStaticTimer = (duration:number) =>{
         setTimeout(()=>{
             props.setLoading(false)
+            setFirstRender(false)
         }, duration)
     }
 
-    if(props.loading){
-        loadingStaticTimer(500)
+    if(props.loading && !firstRender){
+        loadingStaticTimer(300)
     }
 
     const loopStaticScreen = () => {
@@ -78,14 +81,21 @@ export default function TVScreen(props:TVScreenProps) {
     useEffect(() => {
         loadNoiseCanvases()
         staticScreenIntervalIDRef.current = window.setInterval(loopStaticScreen,40);
-        loadingStaticTimer(2000)
+        loadingStaticTimer(1000)
+        setTimeout(()=>{
+            setRenderScreen(true)
+        },200)
+        
+        return () =>{
+            clearInterval(staticScreenIntervalIDRef.current)
+        }
     }, []);
 
     return (
         
         <div id="main-screen">
-            <canvas id="canvas" ref={canvasRef} style={props.loading ? {opacity:1}:{opacity:0.3}}/>
-            {!props.loading ? <ScreenRender screen={props.screens[props.screenIndex]}/>: null}
+            <canvas id="canvas" ref={canvasRef} style={props.loading ? {opacity:1}:{opacity:0.2}}/>
+            {renderScreen ? <ScreenRender screen={props.screens[props.screenIndex]}/>: null}
         </div>
     );
 }

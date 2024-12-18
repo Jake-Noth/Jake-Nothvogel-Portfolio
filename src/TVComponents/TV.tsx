@@ -43,7 +43,7 @@ export default function TV() {
           setLoading={setLoading}
           />
 
-        <TVFooter/>
+        <TVFooter up={up} down={down}/>
       </ReactScrollWheelHandler>
   );
 }
