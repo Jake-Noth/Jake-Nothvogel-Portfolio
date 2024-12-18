@@ -95,7 +95,7 @@ export default function TVScreen(props:TVScreenProps) {
         
         <div id="main-screen">
             <canvas id="canvas" ref={canvasRef} style={props.loading ? {opacity:1}:{opacity:0.2}}/>
-            {renderScreen ? <ScreenRender screen={props.screens[props.screenIndex]}/>: null}
+            {renderScreen ? props.screens[props.screenIndex]: null}
         </div>
     );
 }

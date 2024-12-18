@@ -79,7 +79,7 @@ export default function Screen1(){
                             className="social-links"
                             style={{
                                 ...sharedStyles,
-                                backgroundImage: `url('/githubIcon.svg')`,
+                                backgroundImage: `url('/screen1/githubIcon.svg')`,
                             }}
                             onClick={() => window.open("https://github.com/Jake-Noth", "_tab")}
                         />
@@ -87,7 +87,7 @@ export default function Screen1(){
                             className="social-links"
                             style={{ 
                                 ...sharedStyles,
-                                backgroundImage: `url('/linkedinIcon.svg')`,
+                                backgroundImage: `url('/screen1/linkedinIcon.svg')`,
                             }}
                             onClick={() => window.open("https://www.linkedin.com/", "_tab")}
                         />
@@ -95,7 +95,7 @@ export default function Screen1(){
                             className="social-links"
                             style={{
                                 ...sharedStyles,
-                                backgroundImage: `url('/resume.png')`
+                                backgroundImage: `url('/screen1/resume.png')`
                             }}
                         />
                     </div>
@@ -116,8 +116,7 @@ export default function Screen1(){
                     marginRight:"20px" 
                 }}>
                 <img 
-                    src="/picture.jpeg" 
-                    alt="Description" 
+                    src="/screen1/picture.jpeg" 
                     style={{ 
                         width: "100%", 
                         height: "100%", 
