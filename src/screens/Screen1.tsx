@@ -17,7 +17,7 @@ export default function Screen1(){
                 width:"100%", 
                 borderRadius:"30px", 
                 display:"flex", 
-                flexDirection:"row"
+                flexDirection:"row",
             }}
         >
             <div 

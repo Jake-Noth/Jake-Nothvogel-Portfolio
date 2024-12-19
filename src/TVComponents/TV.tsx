@@ -2,10 +2,8 @@ import { useState } from "react";
 import Screen1 from "../screens/Screen1";
 import Screen2 from "../screens/Screen2";
 import Screen3 from "../screens/Screen3";
-import TVFooter from "./TVFooter";
-import TVHeader from "./TVHeader";
-import TVScreenContainer from "./TVScreenContainer";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import TVScreen from "./TVScreen";
 
 export default function TV() {
   const [screenIndex, setScreenIndex] = useState<number>(0)
@@ -29,21 +27,25 @@ export default function TV() {
 
   return (
     
-      <ReactScrollWheelHandler
-        upHandler={up}
-        downHandler={down}
-        style={{height:"100%", width:"100%"}}
-      >
-        <TVHeader/>
+        <ReactScrollWheelHandler
+          upHandler={up}
+          downHandler={down} 
+          style={{height:"100%", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"#333333"}}>
 
-        <TVScreenContainer 
-          screens={screenComponents} 
-          screenIndex={screenIndex} 
-          loading={loading} 
-          setLoading={setLoading}
-          />
+          <div style={{height:"80%", width:"80%", display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"#444444", padding:"4%"}}>
 
-        <TVFooter up={up} down={down}/>
-      </ReactScrollWheelHandler>
+            <div style={{height:"100%", width:"100%", border:"2px solid black", padding:"7%"}}>
+              <TVScreen screenIndex={screenIndex} screens={screenComponents} loading={loading} setLoading={setLoading}/>
+            </div>
+            
+
+          </div>
+
+        
+
+        </ReactScrollWheelHandler>
+    
+    
+      
   );
 }

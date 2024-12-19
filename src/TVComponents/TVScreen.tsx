@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import ScreenRender from "./ScreenRender";
 
 interface TVScreenProps{
     screens : JSX.Element[]
