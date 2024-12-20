@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Screen1 from "../screens/Screen1";
 import Screen2 from "../screens/Screen2";
 import Screen3 from "../screens/Screen3";
@@ -25,16 +25,21 @@ export default function TV() {
     }
   }
 
+
   return (
     
         <ReactScrollWheelHandler
           upHandler={up}
           downHandler={down} 
-          style={{height:"100%", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"#333333"}}>
+          style={{height:"100%", width:"100%", display:"flex", alignItems:"center", backgroundColor:"#222222", flexDirection:"column"}}>
+            
+          <div style={{fontSize:"25px",color:"#999999", paddingLeft:"10%", height:"4%",width:"100%", display:"flex", justifyContent:"start", alignItems:"center"}}>Trinitron</div>
 
-          <div style={{height:"80%", width:"80%", display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"#444444", padding:"4%"}}>
+          <div id="tv-container" style={{display:"flex", alignItems:"center", justifyContent:"center", position:"relative", backgroundColor:"#333333", padding:"2%",zIndex:"2", borderRadius:"30px"}}>
 
-            <div style={{height:"100%", width:"100%", border:"2px solid black", padding:"7%"}}>
+            
+            <div id="outer-div" style={{height:"100%", width:"100%", border:"2px solid #333333", padding:"2.5%",position:"relative", display:"flex", justifyContent:"center", alignItems:"center",backgroundColor:"#444444",borderRadius:"30px"}}>
+              <canvas id="outer-canvas" style={{position:"absolute", height:"100%", width:"100%", pointerEvents:"none"}}/>
               <TVScreen screenIndex={screenIndex} screens={screenComponents} loading={loading} setLoading={setLoading}/>
             </div>
             
