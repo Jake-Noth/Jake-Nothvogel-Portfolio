@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-interface TVScreenProps{
+interface TVPanelProps{
     screens : JSX.Element[]
     screenIndex: number
     loading: boolean
@@ -8,7 +8,7 @@ interface TVScreenProps{
 }
 
 
-export default function TVScreen(props:TVScreenProps) {
+export default function TVPanel(props:TVPanelProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const staticScreenIntervalIDRef = useRef<number | undefined>(undefined);
     const offscreenCanvases = useRef<OffscreenCanvas[]>([])
