@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 import Screen1 from "./screens/Screen1";
 import Screen2 from "./screens/Screen2";
 import Screen3 from "./screens/Screen3";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import Footer from "./TVComponents/footer";
-
-import TvScreenAndBezels from "./TVComponents/TvScreenAndBezels";
 import Divider from "./TVComponents/Divider";
+import Footer from "./TVComponents/Footer";
+import TVScreenAndBezels from "./TVComponents/TVScreenAndBezels";
 
 export default function App() {
   const [screenIndex, setScreenIndex] = useState<number>(0)
@@ -28,19 +27,39 @@ export default function App() {
     }
   }
 
+  const setScreenIndexAndLoading = (index:number) =>{
+    setLoading(true)
+    setScreenIndex(index)
+  }
+
+  const scrollHandlerStyles: CSSProperties = {
+    height:"100%", 
+    width:"100%", 
+    display:"flex", 
+    alignItems:"center", 
+    backgroundColor:"#222222", 
+    flexDirection:"column"
+  }
 
   return (
         <ReactScrollWheelHandler
           upHandler={up}
           downHandler={down}
           timeout={200} 
-          style={{height:"100%", width:"100%", display:"flex", alignItems:"center", backgroundColor:"#222222", flexDirection:"column"}}>
+          style={{...scrollHandlerStyles}}>
 
-          <TvScreenAndBezels screens={screenComponents} screenIndex={screenIndex} loading={loading} setLoading={setLoading}/>  
+          <TVScreenAndBezels 
+            screens={screenComponents} 
+            screenIndex={screenIndex} 
+            loading={loading} 
+            setLoading={setLoading}
+          />  
           
           <Divider/>
 
-          <Footer/>
+          <Footer 
+            setScreenIndexAndLoading={setScreenIndexAndLoading}
+          />
 
         </ReactScrollWheelHandler>
   );
