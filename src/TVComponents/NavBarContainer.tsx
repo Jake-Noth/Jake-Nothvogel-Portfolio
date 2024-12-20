@@ -42,15 +42,31 @@ export default function NavBarContainer({setScreenIndexAndLoading}:NavBarContain
         borderRadius:"5px", 
         border:"3px solid #111111", 
         boxShadow: "0px 0px 8px ",
-        transition: "transform 0.1s ease-in-out"
+        transition: "transform 0.1s ease-in-out",
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center"
+    }
+
+    const innerButtonStyles: CSSProperties = {
+        height:"20%", 
+        width:"20%", 
+        backgroundColor:"#888888", 
+        borderRadius:"10px"
     }
 
     return(
         <div style={{...outerContainerStyles}}>
             <div style={{...innerContainerStyles}}>
-                <div style={{...buttonStyles}} onClick={() => setScreenIndexAndLoading(0)}/>
-                <div style={{...buttonStyles}} onClick={() => setScreenIndexAndLoading(1)}/>
-                <div style={{...buttonStyles}} onClick={() => setScreenIndexAndLoading(2)}/>
+                <div style={{...buttonStyles}} onClick={() => setScreenIndexAndLoading(0)}>
+                    <div style={{...innerButtonStyles}}/>
+                </div>
+                <div style={{...buttonStyles}} onClick={() => setScreenIndexAndLoading(1)}>
+                    <div style={{...innerButtonStyles}}/>
+                </div>
+                <div style={{...buttonStyles}} onClick={() => setScreenIndexAndLoading(2)}>
+                    <div style={{...innerButtonStyles}}/>
+                </div>
             </div>
         </div>
     )
