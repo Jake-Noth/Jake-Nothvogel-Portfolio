@@ -1,4 +1,5 @@
 import { CSSProperties } from "react"
+import NavButton from "./NavButton"
 
 interface NavBarContainerProps {
     setScreenIndexAndLoading: (index: number) => void
@@ -26,46 +27,58 @@ export default function NavBarContainer({setScreenIndexAndLoading}:NavBarContain
         borderBottomRightRadius:"20px", 
         borderBottomLeftRadius:"20px", 
         display:"flex", 
-        flexDirection:"row", 
+        flexDirection:"column", 
         justifyContent:"space-between", 
-        alignItems:"start",
-        paddingTop:"2%", 
-        paddingRight:"12%", 
-        paddingLeft:"12%"
+        alignItems:"start", 
+        paddingRight:"5%", 
+        paddingLeft:"5%",
     }
 
-    const buttonStyles: CSSProperties = {
-        aspectRatio:"1/1", 
-        height:"50%", 
-        maxWidth:"30%", 
-        backgroundColor:"#333333", 
-        borderRadius:"5px", 
-        border:"3px solid #111111", 
-        boxShadow: "0px 0px 8px ",
-        transition: "transform 0.1s ease-in-out",
+    const navLabelStyles: CSSProperties = {
+        height:"100%", 
+        width:"33%", 
         display:"flex",
-        alignItems:"center",
+        color:"#888888", 
         justifyContent:"center"
     }
 
-    const innerButtonStyles: CSSProperties = {
-        height:"20%", 
-        width:"20%", 
-        backgroundColor:"#888888", 
-        borderRadius:"10px"
+    const sectionStyles: CSSProperties = {
+        height:"50%", 
+        width:"100%", 
+        display:"flex", 
+        flexDirection:"row"
     }
+
+    
 
     return(
         <div style={{...outerContainerStyles}}>
+
             <div style={{...innerContainerStyles}}>
-                <div style={{...buttonStyles}} onClick={() => setScreenIndexAndLoading(0)}>
-                    <div style={{...innerButtonStyles}}/>
-                </div>
-                <div style={{...buttonStyles}} onClick={() => setScreenIndexAndLoading(1)}>
-                    <div style={{...innerButtonStyles}}/>
-                </div>
-                <div style={{...buttonStyles}} onClick={() => setScreenIndexAndLoading(2)}>
-                    <div style={{...innerButtonStyles}}/>
+
+                <div style={{height:"100%", width:"100%"}}>
+
+                    <div style={{...sectionStyles}}>
+
+                        <div style={{height:"100%", width:"33%"}}>
+                            <NavButton index={0} setScreenIndexAndLoading={setScreenIndexAndLoading}/>
+                        </div>
+
+                        <div style={{height:"100%", width:"33%"}}>
+                            <NavButton index={1} setScreenIndexAndLoading={setScreenIndexAndLoading}/>
+                        </div>
+
+                        <div style={{height:"100%", width:"33%"}}>
+                            <NavButton index={2} setScreenIndexAndLoading={setScreenIndexAndLoading}/>
+                        </div>
+
+                    </div>
+
+                    <div style={{...sectionStyles}}>
+                        <div className="nav-label" style={{...navLabelStyles}}>About</div>
+                        <div className="nav-label" style={{...navLabelStyles}}>Skills</div>
+                        <div className="nav-label" style={{...navLabelStyles}}>Projects</div>
+                    </div>
                 </div>
             </div>
         </div>
