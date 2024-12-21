@@ -28,8 +28,10 @@ export default function App() {
   }
 
   const setScreenIndexAndLoading = (index:number) =>{
-    setLoading(true)
-    setScreenIndex(index)
+    if(index != screenIndex){
+      setLoading(true)
+      setScreenIndex(index)
+    }
   }
 
   const scrollHandlerStyles: CSSProperties = {

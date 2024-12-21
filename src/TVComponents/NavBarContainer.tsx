@@ -22,7 +22,7 @@ export default function NavBarContainer({setScreenIndexAndLoading}:NavBarContain
 
     const innerContainerStyles: CSSProperties = {
         height:"95%", 
-        width:"97%",
+        width:"98.5%",
         backgroundColor:"#222222", 
         borderBottomRightRadius:"20px", 
         borderBottomLeftRadius:"20px", 

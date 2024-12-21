@@ -40,7 +40,15 @@
     }
 
     #bottom-bezel-container {
-      font-size:"10px";
+      font-size:10px;
+    }
+
+    #screen1-intro {
+      font-size: 20px;
+    }
+
+    #screen1-description {
+      font-size: 9.5px;
     }
   }
   
@@ -55,7 +63,15 @@
     }
 
     #bottom-bezel-container {
-      font-size:"11px";
+      font-size:11px;
+    }
+
+    #screen1-intro {
+      font-size: 30px;
+    }
+
+    #screen1-description {
+      font-size: 15px;
     }
   }
   
@@ -70,7 +86,15 @@
     }
 
     #bottom-bezel-container {
-      font-size:"13px";
+      font-size:13px;
+    }
+
+    #screen1-intro {
+      font-size: 35px;
+    }
+
+    #screen1-description {
+      font-size: 20px;
     }
   }
   
@@ -87,6 +111,14 @@
     #bottom-bezel-container {
       font-size:"15px";
     }
+
+    #screen1-intro {
+      font-size: 40px;
+    }
+
+    #screen1-description {
+      font-size: 25px;
+    }
   }
   
   @media (min-width: 1201px) and (max-width: 1440px) {
@@ -101,6 +133,14 @@
 
     #bottom-bezel-container {
       font-size:20px;
+    }
+
+    #screen1-intro {
+      font-size: 45px;
+    }
+
+    #screen1-description {
+      font-size: 30px;
     }
   }
   
@@ -117,6 +157,14 @@
     #bottom-bezel-container {
       font-size:25px;
     }
+
+    #screen1-intro {
+      font-size: 50px;
+    }
+
+    #screen1-description {
+      font-size: 35.5px;
+    }
   }
   
   @media (min-width: 1921px) {
@@ -131,6 +179,14 @@
 
     #bottom-bezel-container {
       font-size:25px;
+    }
+
+    #screen1-intro {
+      font-size: 55px;
+    }
+
+    #screen1-description {
+      font-size: 40px;
     }
   }
   

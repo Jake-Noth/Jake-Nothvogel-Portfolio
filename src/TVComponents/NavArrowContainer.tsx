@@ -43,7 +43,7 @@ export default function NavArrowContainer(props: NavArrowContainerProps) {
 
   const navLabelStyles: CSSProperties = {
     height: "100%",
-    width: "33%",
+    width: "50%",
     display: "flex",
     color: "#888888",
     alignItems: "center",
@@ -63,7 +63,7 @@ export default function NavArrowContainer(props: NavArrowContainerProps) {
     <div style={{ ...outerContainerStyles }}>
       <div style={{ ...innerContainerStyles }}>
         <div style={{ height: "100%", width: "100%" }}>
-          <div style={{ ...sectionStyles }}>
+          <div style={{ ...sectionStyles, gap:"2%" }}>
             <div className="nav-label" style={{ ...navLabelStyles }}>
               <div
                 style={{
@@ -83,11 +83,11 @@ export default function NavArrowContainer(props: NavArrowContainerProps) {
             </div>
           </div>
 
-          <div style={{ ...sectionStyles }}>
-            <div style={{ height: "100%", width: "33%" }}>
+          <div style={{ ...sectionStyles, gap:"2%" }}>
+            <div style={{ height: "100%", width: "50%" }}>
               <NavButton onClickFunction={props.up} />
             </div>
-            <div style={{ height: "100%", width: "33%" }}>
+            <div style={{ height: "100%", width: "50%" }}>
               <NavButton onClickFunction={props.down} />
             </div>
           </div>
