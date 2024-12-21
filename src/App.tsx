@@ -59,6 +59,8 @@ export default function App() {
 
           <Footer 
             setScreenIndexAndLoading={setScreenIndexAndLoading}
+            up={up}
+            down={down}
           />
 
         </ReactScrollWheelHandler>

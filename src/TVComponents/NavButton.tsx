@@ -1,11 +1,11 @@
 import { CSSProperties } from "react";
 
 interface NavButtonProps {
-  setScreenIndexAndLoading: (index: number) => void;
-  index: number;
+  onClickFunction: () => void
 }
 
-export default function NavButton({ setScreenIndexAndLoading, index }: NavButtonProps) {
+export default function NavButton({ onClickFunction }: NavButtonProps) {
+  
   const buttonStyles: CSSProperties = {
     aspectRatio: "1/1",
     height: "100%",
@@ -42,7 +42,7 @@ export default function NavButton({ setScreenIndexAndLoading, index }: NavButton
     >
       <div
         style={buttonStyles}
-        onClick={() => setScreenIndexAndLoading(index)}
+        onClick={() => onClickFunction()}
         onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.7)")}
         onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
         onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}

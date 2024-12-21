@@ -65,8 +65,6 @@ export default function TVScreenAndBezels(props: TvAndBezelsProps){
         marginBottom:"0.5%"
     }
 
-
-
     return(
         <>
             <div style={{...topBezelStyles}}>Trinitron</div>

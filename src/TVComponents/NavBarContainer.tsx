@@ -38,7 +38,8 @@ export default function NavBarContainer({setScreenIndexAndLoading}:NavBarContain
         height:"100%", 
         width:"33%", 
         display:"flex",
-        color:"#888888", 
+        color:"#888888",
+        alignItems:"center", 
         justifyContent:"center"
     }
 
@@ -49,7 +50,17 @@ export default function NavBarContainer({setScreenIndexAndLoading}:NavBarContain
         flexDirection:"row"
     }
 
-    
+    const switchPage1 = () =>{
+        setScreenIndexAndLoading(0)
+    }
+
+    const switchPage2 = () =>{
+        setScreenIndexAndLoading(1)
+    }
+
+    const switchPage3 = () =>{
+        setScreenIndexAndLoading(2)
+    }
 
     return(
         <div style={{...outerContainerStyles}}>
@@ -59,26 +70,28 @@ export default function NavBarContainer({setScreenIndexAndLoading}:NavBarContain
                 <div style={{height:"100%", width:"100%"}}>
 
                     <div style={{...sectionStyles}}>
-
-                        <div style={{height:"100%", width:"33%"}}>
-                            <NavButton index={0} setScreenIndexAndLoading={setScreenIndexAndLoading}/>
-                        </div>
-
-                        <div style={{height:"100%", width:"33%"}}>
-                            <NavButton index={1} setScreenIndexAndLoading={setScreenIndexAndLoading}/>
-                        </div>
-
-                        <div style={{height:"100%", width:"33%"}}>
-                            <NavButton index={2} setScreenIndexAndLoading={setScreenIndexAndLoading}/>
-                        </div>
-
-                    </div>
-
-                    <div style={{...sectionStyles}}>
                         <div className="nav-label" style={{...navLabelStyles}}>About</div>
                         <div className="nav-label" style={{...navLabelStyles}}>Skills</div>
                         <div className="nav-label" style={{...navLabelStyles}}>Projects</div>
                     </div>
+
+                    <div style={{...sectionStyles}}>
+
+                        <div style={{height:"100%", width:"33%"}}>
+                            <NavButton  onClickFunction={switchPage1}/>
+                        </div>
+
+                        <div style={{height:"100%", width:"33%"}}>
+                            <NavButton onClickFunction={switchPage2}/>
+                        </div>
+
+                        <div style={{height:"100%", width:"33%"}}>
+                            <NavButton onClickFunction={switchPage3}/>
+                        </div>
+
+                    </div>
+
+                    
                 </div>
             </div>
         </div>
