@@ -13,7 +13,7 @@ export default function Screen1() {
 
     const leftHalfDivStyles: CSSProperties = {
         height: "100%", 
-        width: "50%", 
+        width: "60%", 
         display:"flex", 
         flexDirection:"column"
     }
@@ -45,21 +45,21 @@ export default function Screen1() {
         flexDirection:"row", 
         justifyContent:"center", 
         alignItems:"center", 
-        gap: "1%"
+        gap: "10%"
     }
 
     const linkIconContainerStyles: CSSProperties = {
-        width:"30%",
-        height:"40%",
+        width:"25%",
+        height:"25%",
         backgroundRepeat:"no-repeat", 
         backgroundPosition:"center", 
-        backgroundSize:"contain"
+        backgroundSize:"contain",
+        cursor:"pointer"
     }
-
 
     const rightHalfDivStyles: CSSProperties = {
         height: "100%", 
-        width: "50%", 
+        width: "40%", 
         display: "flex", 
         flexDirection: "column", 
         paddingTop:"2%", 
@@ -84,10 +84,9 @@ export default function Screen1() {
             <div style={{...leftHalfDivStyles}}>
                 <div id="screen1-intro" style={{...introContainerStyles}}>Hi, I'm Jake</div>
                 <div id="screen1-description" style={{...descriptionContainerStyles}}>
-
-                           I’m a full-stack web developer with a degree in computer 
-                            science from Illinois State University. I am based in the 
-                            Chicago area and looking for opportunities in the city of Chicago.
+                    I’m a full-stack web developer with a degree in computer 
+                    science from Illinois State University. I am based in the 
+                    Chicago area and looking for opportunities in the city of Chicago.
                 </div>
                 <div style={{...iconsContainerStyles}}>
                     <div style={{...linkIconContainerStyles, backgroundImage:"url('/screen1images/githubIcon.svg')"}}></div>
