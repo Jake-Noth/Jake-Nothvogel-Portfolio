@@ -45,7 +45,7 @@ export default function Screen1() {
         flexDirection:"row", 
         justifyContent:"center", 
         alignItems:"center", 
-        gap: "10%"
+        gap: "6%"
     }
 
     const linkIconContainerStyles: CSSProperties = {

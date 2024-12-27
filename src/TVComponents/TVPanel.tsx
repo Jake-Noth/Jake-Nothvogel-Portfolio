@@ -75,6 +75,7 @@ export default function TVPanel(props:TVPanelProps) {
                 offscreenCanvases.current.push(offscreenCanvas)
             }
         }
+        console.log('Noise Canvases saved to memory')
     }
 
     const drawLines = () => {
