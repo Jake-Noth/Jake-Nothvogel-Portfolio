@@ -1,3 +1,4 @@
+import { Project } from "./Project"
 
 
 
@@ -8,28 +9,15 @@ interface project2Props{
 
 export default function Project2Card(props:project2Props){
 
+    const project2 = new Project(props)
 
-    const back = () =>{
-        props.setShowCards(true)
-    }
-
-
-    const detailedView = (
-            <div style={{height:"100%", width:"100%", background:"black"}}>
-                <button onClick={back}>back2</button>
-            </div>
+    project2.setCardView(
+        <>lolllllll</>
     )
 
-    const goInDepth = () => {
-        props.setShowCards(false)
-        props.setDetailedView(detailedView)
-    }
-
-    
-        
-    return(
-        <>
-            <button onClick={goInDepth}>Learn More!</button>
-        </>
+    project2.setDetailedProjectView(
+        <>New View</>
     )
+
+    return project2.cardView
 }

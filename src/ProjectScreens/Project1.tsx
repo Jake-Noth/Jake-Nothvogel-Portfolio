@@ -1,5 +1,4 @@
-
-
+import { Project } from "./Project"
 
 interface projectProps{
     setShowCards: React.Dispatch<React.SetStateAction<boolean>>
@@ -8,26 +7,15 @@ interface projectProps{
   
 export default function Project1Card(props:projectProps){
 
+    const project1 = new Project(props);
 
-    const back = () =>{
-        props.setDetailedView(null)
-        props.setShowCards(true)
-    }
-
-    const detailedScreenView = (
-        <div style={{height:"100%", width:"100%", background:"black"}}>
-                <button onClick={back}>back1</button>
-        </div>
+    project1.setCardView(
+        <>Hello wth</>
     )
 
-    const goInDepth = () => {
-        props.setShowCards(false)
-        props.setDetailedView(detailedScreenView)
-    }
-
-    return(
-        <>
-            <button onClick={goInDepth}>Learn More!</button>
-        </>
+    project1.setDetailedProjectView(
+        <>wtf</>
     )
+
+    return project1.getCardView()
 }
