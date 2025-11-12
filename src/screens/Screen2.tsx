@@ -2,12 +2,12 @@ import { CSSProperties } from "react";
 
 export default function Screen2() {
   const iconImages = [
-    "url('/screen2images/typescriptIcon.svg')",
-    "url('/screen2images/htmlIcon.webp')",
-    "url('/screen2images/reactIcon.png')",
-    "url('/screen2images/javaIcon.webp')",
-    "url('/screen2images/pythonIcon.webp')",
-    "url('/screen2images/sqlIcon.png')",
+    "url('screen2images/typescriptIcon.svg')",
+    "url('screen2images/htmlIcon.webp')",
+    "url('screen2images/reactIcon.png')",
+    "url('screen2images/javaIcon.webp')",
+    "url('screen2images/pythonIcon.webp')",
+    "url('screen2images/sqlIcon.png')",
   ];
 
   const screen2ContainerStyles:CSSProperties = {

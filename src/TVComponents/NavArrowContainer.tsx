@@ -68,7 +68,7 @@ export default function NavArrowContainer(props: NavArrowContainerProps) {
               <div
                 style={{
                   ...arrowDivStyles,
-                  backgroundImage: "url('/NavArrowButtonPictures/upArrow.svg')",
+                  backgroundImage: "url('NavArrowButtonPictures/upArrow.svg')",
                 }}
               />
             </div>
@@ -76,7 +76,7 @@ export default function NavArrowContainer(props: NavArrowContainerProps) {
               <div
                 style={{
                   ...arrowDivStyles,
-                  backgroundImage: "url('/NavArrowButtonPictures/upArrow.svg')",
+                  backgroundImage: "url('NavArrowButtonPictures/upArrow.svg')",
                   transform: "rotate(180deg)",
                 }}
               />
